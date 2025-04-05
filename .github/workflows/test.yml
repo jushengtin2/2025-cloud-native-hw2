@@ -36,4 +36,4 @@ jobs:
           else
             echo " Output does not contain expected text"
             exit 1
-          f
+          fi
