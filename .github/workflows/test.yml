@@ -16,7 +16,7 @@ jobs:
         if: ${{ github.head_ref == 'hw1-p' }}
         run: |
           echo "Running hw1-p-branch.py..."
-          output=$(python3 2025-cloud-native-hw2/hw1-p-branch.py)
+          output=$(python3 hw1-p-branch.py)
           echo "Script output: $output"
           if echo "$output" | grep -q "hello world for hw1-p"; then
             echo " Output is correct"
@@ -29,11 +29,11 @@ jobs:
         if: ${{ github.head_ref == 'hw1-f' }}
         run: |
           echo "Running hw1-f-branch.py..."
-          output=$(python3 2025-cloud-native-hw2/hw1-f-branch.py)
+          output=$(python3 hw1-f-branch.py)
           echo "Script output: $output"
           if echo "$output" | grep -q "hello world for hw1-f"; then
             echo " Output should not contain 'hello world for hw1-f'"
             exit 1
           else
             echo "Output is incorrect as expected"
-          fi
+          f
