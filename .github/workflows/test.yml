@@ -1,0 +1,39 @@
+name: Python Output Check
+
+on:
+  pull_request:
+    branches: [main]
+
+jobs:
+  check-output:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Run & Check output for hw1-p (should pass)
+        if: ${{ github.head_ref == 'hw1-p' }}
+        run: |
+          echo "Running hw1-p-branch.py..."
+          output=$(python3 2025-cloud-native-hw2/hw1-p-branch.py)
+          echo "Script output: $output"
+          if echo "$output" | grep -q "hello world for hw1-p"; then
+            echo " Output is correct"
+          else
+            echo " Output does not contain expected text"
+            exit 1
+          fi
+
+      - name: Run & Check output for hw1-f (should fail)
+        if: ${{ github.head_ref == 'hw1-f' }}
+        run: |
+          echo "Running hw1-f-branch.py..."
+          output=$(python3 2025-cloud-native-hw2/hw1-f-branch.py)
+          echo "Script output: $output"
+          if echo "$output" | grep -q "hello world for hw1-f"; then
+            echo " Output should not contain 'hello world for hw1-f'"
+            exit 1
+          else
+            echo "Output is incorrect as expected"
+          fi
