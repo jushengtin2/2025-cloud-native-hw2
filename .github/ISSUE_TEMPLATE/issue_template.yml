@@ -1,43 +1,80 @@
-name: Bug Report
-description: 回報一個你遇到的問題
-title: "[Bug] "
-labels: [bug]
-assignees: []
-
+name: "🐛 Bug Report"
+description: Create a new ticket for a bug.
+title: "🐛 [BUG] - <title>"
+labels: [
+  "bug"
+]
 body:
-  - type: markdown
+  - type: textarea
+    id: description
     attributes:
-      value: |
-        請填寫以下資訊以幫助我們了解你的問題。
-
+      label: "Description"
+      description: Please enter an explicit description of your issue
+      placeholder: Short and explicit description of your incident...
+    validations:
+      required: true
   - type: input
-    id: environment
+    id: reprod-url
     attributes:
-      label: 運行環境
-      description: 請說明你的作業系統、瀏覽器或其他相關資訊
-      placeholder: e.g., Windows 11 + Chrome 123
-
+      label: "Reproduction URL"
+      description: Please enter your GitHub URL to provide a reproduction of the issue
+      placeholder: ex. https://github.com/USERNAME/REPO-NAME
+    validations:
+      required: true
   - type: textarea
-    id: steps
+    id: reprod
     attributes:
-      label: 重現步驟
-      description: 請詳述重現問題的步驟
-      placeholder: |
-        1. 打開網站
-        2. 點選登入
-        3. 發生錯誤
-      value: " "
-
+      label: "Reproduction steps"
+      description: Please enter an explicit description of your issue
+      value: |
+        1. Go to '...'
+        2. Click on '....'
+        3. Scroll down to '....'
+        4. See error
+      render: bash
+    validations:
+      required: true
   - type: textarea
-    id: expected
+    id: screenshot
     attributes:
-      label: 預期結果
-      description: 請說明你原本預期的行為
-      value: " "
-
+      label: "Screenshots"
+      description: If applicable, add screenshots to help explain your problem.
+      value: |
+        ![DESCRIPTION](LINK.png)
+      render: bash
+    validations:
+      required: false
   - type: textarea
-    id: actual
+    id: logs
     attributes:
-      label: 實際結果
-      description: 實際上發生了什麼？
-      value: " "
+      label: "Logs"
+      description: Please copy and paste any relevant log output. This will be automatically formatted into code, so no need for backticks.
+      render: bash
+    validations:
+      required: false
+  - type: dropdown
+    id: browsers
+    attributes:
+      label: "Browsers"
+      description: What browsers are you seeing the problem on ?
+      multiple: true
+      options:
+        - Firefox
+        - Chrome
+        - Safari
+        - Microsoft Edge
+        - Opera
+    validations:
+      required: false
+  - type: dropdown
+    id: os
+    attributes:
+      label: "OS"
+      description: What is the impacted environment ?
+      multiple: true
+      options:
+        - Windows
+        - Linux
+        - Mac
+    validations:
+      required: false
