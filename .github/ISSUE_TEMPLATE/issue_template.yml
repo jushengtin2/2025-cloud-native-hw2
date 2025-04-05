@@ -26,18 +26,18 @@ body:
         1. 打開網站
         2. 點選登入
         3. 發生錯誤
-      value: ""
+      value: " "
 
   - type: textarea
     id: expected
     attributes:
       label: 預期結果
       description: 請說明你原本預期的行為
-      value: ""
+      value: " "
 
   - type: textarea
     id: actual
     attributes:
       label: 實際結果
       description: 實際上發生了什麼？
-      value: ""
+      value: " "
