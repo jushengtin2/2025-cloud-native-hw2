@@ -32,8 +32,8 @@ jobs:
           output=$(python3 hw1-f-branch.py)
           echo "Script output: $output"
           if echo "$output" | grep -q "hello world for hw1-f"; then
-            echo " Output should not contain 'hello world for hw1-f'"
-            exit 1
+            echo " Output is correct"
           else
-            echo "Output is incorrect as expected"
+            echo " Output does not contain expected text"
+            exit 1
           f
